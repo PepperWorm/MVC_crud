@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <title>Welcome Page</title>
+    <meta charset="UTF-8">
+    <title>AllUsers</title>
 </head>
+
 <body>
-<h1>Welcome</h1>
-<ul>
-    <li th:each="message : ${messages}" th:text="${message}"></li>
-</ul>
+
+<div th:each="user : ${users}">
+    <a th:href="@{/show(id=${user.getId()})}" th:text="${user.getName()}">user</a>
+</div>
+
+<br/>
+<a th:href="@{/new}">Add new user</a>
+
 </body>
+
 </html>
